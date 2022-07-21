@@ -46,7 +46,7 @@ class TitulacionController extends Controller
      */
     public function show(Titulacion $titulacion)
     {
-        //
+        return view('titulaciones/ver', ['titulacion' => $titulacion]);
     }
 
     /**
@@ -80,6 +80,7 @@ class TitulacionController extends Controller
      */
     public function destroy(Titulacion $titulacion)
     {
-        //
+        $titulacion->deleteOrFail();
+        return redirect()->route('titulaciones.index')->with('status', 'Titulación Borrada');
     }
 }
