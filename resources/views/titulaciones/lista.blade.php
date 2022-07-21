@@ -13,12 +13,14 @@
     </div>
 
     <div class="row">
-        <div class="col">Nombre</div>
+        <div class="col fw-bold">Nombre</div>
     </div>
     @foreach ($titulaciones as $titulacion)
     <div class="row">
         <div class="col">
-            {{ $titulacion->nombre }}
+            <a href="{{ route('titulaciones.show', ['titulacion' => $titulacion]) }}">
+                {{ $titulacion->nombre }}
+            </a>
         </div>
     </div>
     @endforeach
