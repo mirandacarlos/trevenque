@@ -18,4 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('titulaciones', TitulacionController::class);
+Route::resource('titulaciones', TitulacionController::class)
+    ->parameters(['titulaciones' => 'titulacion']);
