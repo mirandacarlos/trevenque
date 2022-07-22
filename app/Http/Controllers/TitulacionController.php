@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Titulacion;
+use App\Http\Requests\TitulacionRequest;
 use Illuminate\Http\Request;
 
 class TitulacionController extends Controller
@@ -24,7 +25,9 @@ class TitulacionController extends Controller
      */
     public function create()
     {
-        //
+        return view('titulaciones/formulario', [
+            'titulacion' => new Titulacion()
+        ]);
     }
 
     /**
@@ -33,9 +36,12 @@ class TitulacionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TitulacionRequest $request)
     {
-        //
+        $titulacion = Titulacion::create($request->validated());
+        return redirect()
+            ->route('titulaciones.index')
+            ->with('status', 'Titulación creada');
     }
 
     /**
@@ -57,7 +63,9 @@ class TitulacionController extends Controller
      */
     public function edit(Titulacion $titulacion)
     {
-        //
+        return view('titulaciones/formulario', [
+            'titulacion' => $titulacion
+        ]);
     }
 
     /**
@@ -67,9 +75,12 @@ class TitulacionController extends Controller
      * @param  \App\Models\Titulacion  $titulacion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Titulacion $titulacion)
+    public function update(TitulacionRequest $request, Titulacion $titulacion)
     {
-        //
+        $titulacion->update($request->validated());
+        return redirect()
+            ->route('titulaciones.show', ['titulacion' => $titulacion])
+            ->with('status', 'Titulación actualizada');
     }
 
     /**
@@ -81,6 +92,7 @@ class TitulacionController extends Controller
     public function destroy(Titulacion $titulacion)
     {
         $titulacion->deleteOrFail();
-        return redirect()->route('titulaciones.index')->with('status', 'Titulación Borrada');
+        return redirect()->route('titulaciones.index')
+            ->with('status', 'Titulación borrada');
     }
 }
