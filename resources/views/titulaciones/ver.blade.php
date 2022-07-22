@@ -43,5 +43,10 @@
             <h3>Asignaturas asociadas</h3>
         </div>
     </div>
-    <!-- todo -->
+    <ul>
+        @foreach ($titulacion->asignaturas as $asignatura)
+        <li>{{ $asignatura->nombre.' '.$asignatura->matricula }}</li>
+        @endforeach
+    </ul>
+
 </x-layout>
