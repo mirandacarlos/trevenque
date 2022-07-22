@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('creditos');
             $table->string('curso_academico');
             $table->integer('maximo');
+            $table->string('matricula');
             $table->foreignId('titulacion_id')
                 ->constrained('titulaciones')
                 ->restrictOnDelete()

@@ -28,6 +28,7 @@ class AsignaturaFactory extends Factory
             'creditos' => rand(1, 10),
             'curso_academico' => $year.' - '.$year + 1,
             'maximo' => rand(1, 20),
+            'matricula' => $this->faker->ean8(),
             'titulacion_id' => $titulacion
         ];
     }

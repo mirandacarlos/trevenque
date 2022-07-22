@@ -26,6 +26,7 @@ class Asignatura extends Model
         'creditos',
         'curso_academico',
         'maximo',
+        'matricula',
         'titulacion_id'
     ];
 
