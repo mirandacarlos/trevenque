@@ -10,7 +10,7 @@
             <a href="{{ route('titulaciones.index') }}">Titulaciones</a>
         </div>
         <div class="col text-center">
-            <a href="#">Asignaturas</a>
+            <a href="{{  route('asignaturas.index') }}">Asignaturas</a>
         </div>
         <div class="col text-center">
             <a href="#">Cursos</a>
