@@ -11,7 +11,7 @@
         @else
         <x-slot:title>Actualizar titulación</x-slot:title>
         <h1>Actualizar titulación</h1>
-        <form action="{{ route('titulacioes.update', ['titulacion' => $titulacion]) }}" method="POST">
+        <form action="{{ route('titulaciones.update', ['titulacion' => $titulacion]) }}" method="POST">
             @method('PUT')
             @endif
             @csrf
