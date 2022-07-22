@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Titulacion extends Model
+class Asignatura extends Model
 {
     use HasFactory;
 
@@ -14,20 +14,25 @@ class Titulacion extends Model
      *
      * @var string
      */
-    protected $table = 'titulaciones';
+    protected $table = 'asignaturas';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['nombre'];
+    protected $fillable = [
+        'nombre',
+        'creditos',
+        'curso_academico',
+        'maximo',
+        'titulacion_id'
+    ];
 
     /**
-     * Relacion con asignaturas.
-     * 
+     * Relacion con titulacion.
      */
-    public function asignaturas(){
-        return $this->hasMany(Asignatura::class);
+    public function titulacion(){
+        return $this->belongsTo(Titulacion::class);
     }
 }
