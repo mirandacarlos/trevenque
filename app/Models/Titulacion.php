@@ -15,4 +15,11 @@ class Titulacion extends Model
      * @var string
      */
     protected $table = 'titulaciones';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['nombre'];
 }
