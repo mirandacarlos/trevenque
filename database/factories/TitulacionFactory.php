@@ -17,7 +17,7 @@ class TitulacionFactory extends Factory
     public function definition()
     {
         return [
-            'nombre' => $this->faker->words(2, true)
+            'nombre' => $this->faker->words(rand(1, 3), true)
         ];
     }
 }
