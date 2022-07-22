@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AsignaturaController;
 use App\Http\Controllers\TitulacionController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +21,5 @@ Route::get('/', function () {
 
 Route::resource('titulaciones', TitulacionController::class)
     ->parameters(['titulaciones' => 'titulacion']);
+
+Route::resource('asignaturas', AsignaturaController::class);
