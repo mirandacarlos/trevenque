@@ -46,7 +46,7 @@ class AsignaturaController extends Controller
      */
     public function show(Asignatura $asignatura)
     {
-        //
+        return view('asignaturas/ver', ['asignatura' => $asignatura]);
     }
 
     /**
@@ -80,6 +80,8 @@ class AsignaturaController extends Controller
      */
     public function destroy(Asignatura $asignatura)
     {
-        //
+        $asignatura->deleteOrFail();
+        return redirect()->route('asignaturas.index')
+            ->with('status', 'Asignatura borrada');
     }
 }
