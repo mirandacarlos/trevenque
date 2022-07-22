@@ -12,9 +12,6 @@
         <div class="col text-center">
             <a href="{{  route('asignaturas.index') }}">Asignaturas</a>
         </div>
-        <div class="col text-center">
-            <a href="#">Cursos</a>
-        </div>
     </div>
     <div class="row">
         <div class="col text-center">
@@ -23,6 +20,5 @@
         <div class="col text-center">
             <a href="">Examenes</a>
         </div>
-        <div class="col"></div>
     </div>
 </x-layout>
