@@ -1,7 +1,8 @@
 <x-layout>
     <x-slot:title>Ver titulaci&oacute;n</x-slot:title>
     <div class="row">
-        <div class="col"><a href="{{ route('titulaciones.index') }}" class="link-secondary float-end">Volver al listado</a>
+        <div class="col">
+            <a href="{{ route('titulaciones.index') }}" class="link-secondary float-end">Volver al listado</a>
         </div>
     </div>
     <div class="row">
