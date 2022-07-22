@@ -19,12 +19,12 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <span class="fw-bold">creado</span>: {{ $titulacion->created_at }}
+                    <span class="fw-bold">Creado</span>: {{ $titulacion->created_at }}
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <span class="fw-bold">actualizado</span>: {{ $titulacion->updated_at }}
+                    <span class="fw-bold">Actualizado</span>: {{ $titulacion->updated_at }}
                 </div>
             </div>
         </div>
