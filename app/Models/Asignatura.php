@@ -32,8 +32,17 @@ class Asignatura extends Model
 
     /**
      * Relacion con titulacion.
+     * 
      */
     public function titulacion(){
         return $this->belongsTo(Titulacion::class);
+    }
+
+    /**
+     * Relacion con alumnos.
+     * 
+     */
+    public function alumnos(){
+        return $this->belongsToMany(Alumno::class)->using(Curso::class);
     }
 }

@@ -26,4 +26,12 @@ class Alumno extends Model
         'apellidos',
         'nacimiento'
     ];
+
+    /**
+     * Relacion con asignaturas.
+     * 
+     */
+    public function asignaturas(){
+        return $this->belongsToMany(Asignatura::class)->using(Curso::class);
+    }
 }
