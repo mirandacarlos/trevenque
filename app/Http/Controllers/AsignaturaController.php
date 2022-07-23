@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Asignatura;
+use App\Models\Titulacion;
+use App\Http\Requests\AsignaturaRequest;
 use Illuminate\Http\Request;
 
 class AsignaturaController extends Controller
@@ -24,7 +26,10 @@ class AsignaturaController extends Controller
      */
     public function create()
     {
-        //
+        return view('asignaturas/formulario', [
+            'asignatura' => new Asignatura(),
+            'titulaciones' => Titulacion::all()
+        ]);
     }
 
     /**
@@ -33,9 +38,12 @@ class AsignaturaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AsignaturaRequest $request)
     {
-        //
+        Asignatura::create($request->validated());
+        return redirect()
+            ->route('asignaturas.index')
+            ->with('status', 'Asignatura creada');
     }
 
     /**
@@ -57,7 +65,10 @@ class AsignaturaController extends Controller
      */
     public function edit(Asignatura $asignatura)
     {
-        //
+        return view('asignaturas/formulario', [
+            'asignatura' => $asignatura,
+            'titulaciones' => Titulacion::all()
+        ]);
     }
 
     /**
@@ -67,9 +78,12 @@ class AsignaturaController extends Controller
      * @param  \App\Models\Asignatura  $asignatura
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Asignatura $asignatura)
+    public function update(AsignaturaRequest $request, Asignatura $asignatura)
     {
-        //
+        $asignatura->update($request->validated());
+        return redirect()
+            ->route('asignaturas.show', ['asignatura' => $asignatura])
+            ->with('status', 'Asignatura actualizada');
     }
 
     /**
