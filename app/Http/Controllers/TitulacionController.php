@@ -38,7 +38,7 @@ class TitulacionController extends Controller
      */
     public function store(TitulacionRequest $request)
     {
-        $titulacion = Titulacion::create($request->validated());
+        Titulacion::create($request->validated());
         return redirect()
             ->route('titulaciones.index')
             ->with('status', 'Titulación creada');
