@@ -63,7 +63,9 @@ class AlumnoController extends Controller
      */
     public function edit(Alumno $alumno)
     {
-        //
+        return view('alumnos/formulario', [
+            'alumno' => $alumno
+        ]);
     }
 
     /**
@@ -73,9 +75,12 @@ class AlumnoController extends Controller
      * @param  \App\Models\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Alumno $alumno)
+    public function update(AlumnoRequest $request, Alumno $alumno)
     {
-        //
+        $alumno->update($request->validated());
+        return redirect()
+            ->route('alumnos.show', ['alumno' => $alumno])
+            ->with('status', 'Alumno actualizado');
     }
 
     /**
