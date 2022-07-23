@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alumno;
+use App\Http\Requests\AlumnoRequest;
 use Illuminate\Http\Request;
 
 class AlumnoController extends Controller
@@ -24,7 +25,9 @@ class AlumnoController extends Controller
      */
     public function create()
     {
-        //
+        return view('alumnos/formulario', [
+            'alumno' => new Alumno()
+        ]);
     }
 
     /**
@@ -33,9 +36,12 @@ class AlumnoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AlumnoRequest $request)
     {
-        //
+        Alumno::create($request->validated());
+        return redirect()
+            ->route('alumnos.index')
+            ->with('status', 'Alumno creado');
     }
 
     /**
