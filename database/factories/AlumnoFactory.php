@@ -19,7 +19,7 @@ class AlumnoFactory extends Factory
     {
         return [
             'nombre' => $this->faker->firstName(),
-            'apellidos' => $this->faker->lastName(),
+            'apellidos' => $this->faker->lastName().' '.$this->faker->lastName(),
             'nacimiento' => $this->faker->year('-18 years')
         ];
     }
