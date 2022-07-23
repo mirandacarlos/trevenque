@@ -46,7 +46,7 @@ class AlumnoController extends Controller
      */
     public function show(Alumno $alumno)
     {
-        //
+        return view('alumnos/ver', ['alumno' => $alumno]);
     }
 
     /**
@@ -80,6 +80,8 @@ class AlumnoController extends Controller
      */
     public function destroy(Alumno $alumno)
     {
-        //
+        $alumno->deleteOrFail();
+        return redirect()->route('alumnos.index')
+            ->with('status', 'Alumno borrado');
     }
 }
