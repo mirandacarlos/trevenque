@@ -14,7 +14,7 @@
         <div class="col-2 fw-bold">Nombre</div>
         <div class="col-2 fw-bold">Matricula</div>
         <div class="col-1 fw-bold">Cr&eacute;ditos</div>
-        <div class="col-2 fw-bold">Curso academico</div>
+        <div class="col-2 fw-bold">Curso acad&eacute;mico</div>
         <div class="col-1 fw-bold">Capacidad</div>
         <div class="col-2 fw-bold">Acciones</div>
     </div>

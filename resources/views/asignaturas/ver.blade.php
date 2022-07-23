@@ -63,4 +63,10 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col text-center">
+            <h3>Alumnos examinados</h3>
+        </div>
+    </div>
+    <!-- todo -->
 </x-layout>
