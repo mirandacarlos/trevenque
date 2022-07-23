@@ -16,8 +16,8 @@
             @endif
             @csrf
 
-            <div class="row mb-3">
-                <div class="col-9">
+            <div class="row mb-1">
+                <div class="col-3">
                     <label for="nombre" class="form-label">Nombre: </label>
                     <input type="text" name="nombre" id="nombre" class="form-control" value="{{ old('nombre', $titulacion->nombre) }}" />
                     @error('nombre')
