@@ -17,7 +17,11 @@
     </div>
     @foreach ($alumnos as $alumno)
     <div class="row">
-        <div class="col-2">{{ $alumno->nombre }}</div>
+        <div class="col-2">
+            <a href="{{ route('alumnos.show', ['alumno' => $alumno]) }}" class="link-info">
+                {{ $alumno->nombre }}
+            </a>
+        </div>
         <div class="col-3">{{ $alumno->apellidos }}</div>
         <div class="col-2">{{ $alumno->nacimiento }}</div>
         <div class="col d-flex">
