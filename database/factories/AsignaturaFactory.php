@@ -26,7 +26,7 @@ class AsignaturaFactory extends Factory
         return [
             'nombre' => $this->faker->words(rand(1, 3), true),
             'creditos' => rand(1, 10),
-            'curso_academico' => $year.' - '.$year + 1,
+            'curso_academico' => $year.'-'.$year + 1,
             'maximo' => rand(1, 20),
             'matricula' => $this->faker->ean8(),
             'titulacion_id' => $titulacion
