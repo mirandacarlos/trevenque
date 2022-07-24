@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\AsignaturaController;
+use App\Http\Controllers\CursoController;
 use App\Http\Controllers\TitulacionController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,5 @@ Route::resource('titulaciones', TitulacionController::class)
 Route::resource('asignaturas', AsignaturaController::class);
 
 Route::resource('alumnos', AlumnoController::class);
+
+Route::resource('cursos', CursoController::class);

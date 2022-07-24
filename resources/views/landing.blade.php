@@ -18,6 +18,9 @@
             <a href="{{ route('alumnos.index') }}">Alumnos</a>
         </div>
         <div class="col text-center">
+            <a href="{{ route('cursos.index') }}">Cursos</a>
+        </div>
+        <div class="col text-center">
             <a href="">Examenes</a>
         </div>
     </div>
