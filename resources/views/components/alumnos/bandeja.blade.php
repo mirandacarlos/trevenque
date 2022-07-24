@@ -2,6 +2,7 @@
     <div class="col-2 fw-bold">Nombre</div>
     <div class="col-3 fw-bold">Apellidos</div>
     <div class="col-2 fw-bold">A&ntilde;o de nacimiento</div>
+    <div class="col-2 fw-bold">Asignaturas</div>
     @if ($acciones)
     <div class="col fw-bold">Acciones</div>
     @endif
@@ -15,6 +16,7 @@
     </div>
     <div class="col-3">{{ $alumno->apellidos }}</div>
     <div class="col-2">{{ $alumno->nacimiento }}</div>
+    <div class="col-2">{{ $alumno->asignaturas->count() }}</div>
     @if ($acciones)
     <div class="col d-flex">
         <a href="{{ route('alumnos.edit', ['alumno' => $alumno]) }}" class="link-secondary me-2">Actualizar</a>
