@@ -50,9 +50,10 @@
 
     <div class="row">
         <div class="col text-center">
-            <h3>Examenes presentados</h3>
+            <h3>Asignaturas que cursa</h3>
         </div>
     </div>
-    <!-- todo -->
+    
+    <x-asignaturas.bandeja :asignaturas="$alumno->asignaturas" :acciones="false"></x-asignaturas.bandeja>
 
 </x-layout>
