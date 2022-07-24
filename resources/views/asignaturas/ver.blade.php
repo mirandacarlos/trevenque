@@ -65,7 +65,7 @@
 
     <div class="row">
         <div class="col text-center">
-            <h3>Alumnos examinados</h3>
+            <h3>Alumnos inscritos</h3>
         </div>
     </div>
     <!-- todo -->
