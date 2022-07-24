@@ -43,6 +43,6 @@ class Asignatura extends Model
      * 
      */
     public function alumnos(){
-        return $this->belongsToMany(Alumno::class)->using(Curso::class);
+        return $this->belongsToMany(Alumno::class, 'cursos');
     }
 }
