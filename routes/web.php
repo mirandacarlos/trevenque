@@ -29,3 +29,5 @@ Route::resource('asignaturas', AsignaturaController::class);
 Route::resource('alumnos', AlumnoController::class);
 
 Route::post('/cursos/inscribirAlumnos', [CursoController::class, 'inscribirAlumnos'])->name('cursos.inscribirAlumnos');
+
+Route::post('/cursos/inscribirAsignaturas', [CursoController::class, 'inscribirAsignaturas'])->name('cursos.inscribirAsignaturas');
