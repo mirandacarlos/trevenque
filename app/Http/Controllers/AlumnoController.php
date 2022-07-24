@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Alumno;
 use App\Http\Requests\AlumnoRequest;
+use App\Models\Asignatura;
+use App\Models\Curso;
 use Illuminate\Http\Request;
 
 class AlumnoController extends Controller
@@ -52,7 +54,17 @@ class AlumnoController extends Controller
      */
     public function show(Alumno $alumno)
     {
-        return view('alumnos/ver', ['alumno' => $alumno]);
+        $asignaturas = Asignatura::whereNotIn(
+            'id',
+            Curso::select('asignatura_id')
+                ->where('alumno_id', $alumno->id)->get()
+        )->get()->reject(function ($asignatura){
+            return $asignatura->maximo <= $asignatura->alumnos->count();
+        });
+        return view('alumnos/ver', [
+            'alumno' => $alumno,
+            'asignaturas' => $asignaturas
+        ]);
     }
 
     /**
