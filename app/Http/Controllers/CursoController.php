@@ -26,4 +26,15 @@ class CursoController extends Controller
         }
         return back()->with('error', 'Debe seleccionar al menos un alumno');
     }
+
+    public function inscribirAsignaturas(Request $request)
+    {
+        if ($request->has('asignatura_id')) {
+            foreach ($request->asignatura_id as $id) {
+                Curso::create(['asignatura_id' => $id, 'alumno_id' => $request->alumno_id]);
+            }
+            return back()->with('status', 'Se ha inscrito al alumno en las asignaturas');
+        }
+        return back()->with('error', 'Debe seleccionar al menos una asignatura');
+    }
 }
