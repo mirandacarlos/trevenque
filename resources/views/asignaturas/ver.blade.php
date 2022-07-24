@@ -34,12 +34,17 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <span class="fw-bold">Curso academico</span>: {{ $asignatura->curso_academico }}
+                    <span class="fw-bold">Curso acad&eacute;mico</span>: {{ $asignatura->curso_academico }}
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <span class="fw-bold">Alumnos m&aacute;ximo</span>: {{ $asignatura->maximo }}
+                    <span class="fw-bold">Alumnos m&aacute;ximos</span>: {{ $asignatura->maximo }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <span class="fw-bold">Alumnos inscritos</span>: {{ $asignatura->alumnos->count() }}
                 </div>
             </div>
             <div class="row">
