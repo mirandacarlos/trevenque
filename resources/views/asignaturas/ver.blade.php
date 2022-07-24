@@ -12,7 +12,7 @@
     </div>
     <div class="row">
         <div class="col-4">
-        <div class="row">
+            <div class="row">
                 <div class="col">
                     <span class="fw-bold">Titulación</span>: {{ $asignatura->titulacion->nombre }}
                 </div>
@@ -68,5 +68,7 @@
             <h3>Alumnos inscritos</h3>
         </div>
     </div>
-    <!-- todo -->
+
+    <x-alumnos.bandeja :alumnos="$asignatura->alumnos" :acciones="false"></x-alumnos.bandeja>
+
 </x-layout>
