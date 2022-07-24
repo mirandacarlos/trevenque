@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Asignatura;
 use App\Models\Titulacion;
+use App\Models\Alumno;
+use App\Models\Curso;
 use App\Http\Requests\AsignaturaRequest;
-use Illuminate\Http\Request;
 
 class AsignaturaController extends Controller
 {
@@ -54,7 +55,14 @@ class AsignaturaController extends Controller
      */
     public function show(Asignatura $asignatura)
     {
-        return view('asignaturas/ver', ['asignatura' => $asignatura]);
+        return view('asignaturas/ver', [
+            'asignatura' => $asignatura,
+            'alumnos' => Alumno::whereNotIn(
+                'id',
+                Curso::select('alumno_id')
+                    ->where('asignatura_id', $asignatura->id)->get()
+            )->get()
+    ]);
     }
 
     /**
