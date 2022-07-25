@@ -6,7 +6,7 @@
     <div class="col-2 fw-bold">Curso</div>
     <div class="col-1 fw-bold">Capacidad</div>
     <div class="col-1 fw-bold">Inscritos</div>
-    @if ($acciones)
+    @if ($acciones || isset($alumno))
     <div class="col fw-bold">Acciones</div>
     @endif
 </div>
@@ -34,6 +34,15 @@
             @csrf
             @method('DELETE')
             <a href="#" class="link-danger" onclick="if (confirm('Desea borrar la asignatura?')){this.closest('form').submit()}">Borrar</a>
+        </form>
+    </div>
+    @endif
+    @if (isset($asignatura))
+    <div class="col d-flex">
+        <form action="{{ route('cursos.bajaAlumno', ['alumno_id' => $alumno->id, 'asignatura_id' => $asignatura->id]) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <a href="#" class="link-danger" onclick="if (confirm('Desea dar de baja al alumno de la asignatura? Se perderán las calificaciones')){this.closest('form').submit()}">Baja</a>
         </form>
     </div>
     @endif

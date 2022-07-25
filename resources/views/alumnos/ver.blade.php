@@ -39,12 +39,8 @@
             </div>
         </div>
         <div class="col d-flex align-items-center">
-            <button id="inscribir" @class([
-                "btn", 
-                "btn-primary", 
-                "me-2",
-                "disabled" => count($asignaturas) == 0
-            ]) data-bs-toggle="modal" data-bs-target="#inscribirModal">Inscribir</button>
+            <button id="inscribir" @class([ "btn" , "btn-primary" , "me-2" , "disabled"=> count($asignaturas) == 0
+                ]) data-bs-toggle="modal" data-bs-target="#inscribirModal">Inscribir</button>
             <a href="{{ route('alumnos.edit', ['alumno' => $alumno]) }}" class="btn btn-success me-2">Actualizar</a>
             <form action="{{ route('alumnos.destroy', ['alumno' => $alumno]) }}" method="POST">
                 @csrf
@@ -59,8 +55,8 @@
             <h3>Asignaturas que cursa</h3>
         </div>
     </div>
-    
-    <x-asignaturas.bandeja :asignaturas="$alumno->asignaturas" :acciones="false"></x-asignaturas.bandeja>
+
+    <x-asignaturas.bandeja :asignaturas="$alumno->asignaturas" :acciones="false" :alumno="$alumno"></x-asignaturas.bandeja>
 
     <div class="modal fade" id="inscribirModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="inscribirModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
