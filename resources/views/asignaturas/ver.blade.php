@@ -65,7 +65,7 @@
             <form action="{{ route('asignaturas.destroy', ['asignatura' => $asignatura]) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <input type="submit" class="btn btn-danger" value="Borrar" onclick="return confirm('Desea borrar la titulación?')" />
+                <input type="submit" class="btn btn-danger" value="Borrar" onclick="return confirm('Desea borrar la asignatura?')" />
             </form>
         </div>
     </div>

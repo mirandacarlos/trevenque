@@ -37,7 +37,7 @@
         </form>
     </div>
     @endif
-    @if (isset($asignatura))
+    @if (isset($alumno))
     <div class="col d-flex">
         <form action="{{ route('cursos.bajaAlumno', ['alumno_id' => $alumno->id, 'asignatura_id' => $asignatura->id]) }}" method="POST">
             @csrf
