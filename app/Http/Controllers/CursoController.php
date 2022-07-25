@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Asignatura;
+use App\Models\Alumno;
 use App\Models\Curso;
 use Illuminate\Http\Request;
 
@@ -27,6 +28,10 @@ class CursoController extends Controller
         return back()->with('error', 'Debe seleccionar al menos un alumno');
     }
 
+    /**
+     * Guardar inscripciones de asignaturas a un alumno.
+     * 
+     */
     public function inscribirAsignaturas(Request $request)
     {
         if ($request->has('asignatura_id')) {
@@ -36,5 +41,17 @@ class CursoController extends Controller
             return back()->with('status', 'Se ha inscrito al alumno en las asignaturas');
         }
         return back()->with('error', 'Debe seleccionar al menos una asignatura');
+    }
+
+    /**
+     * Dar de baja a un alumno de una asignatura
+     * 
+     */
+    public function bajaAlumno(Request $request)
+    {
+        Curso::where('alumno_id', $request->alumno_id)
+            ->where('asignatura_id', $request->asignatura_id)
+            ->first()->deleteOrFail();
+        return back()->with('status', 'Alumno dado de baja de la asignatura');
     }
 }

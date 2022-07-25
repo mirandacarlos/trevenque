@@ -75,8 +75,8 @@
             <h3>Alumnos inscritos</h3>
         </div>
     </div>
-
-    <x-alumnos.bandeja :alumnos="$asignatura->alumnos" :acciones="false"></x-alumnos.bandeja>
+    
+    <x-alumnos.bandeja :alumnos="$asignatura->alumnos" :acciones="false" :asignatura="$asignatura"></x-alumnos.bandeja>
 
     <div class="modal fade" id="inscribirModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="inscribirModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
