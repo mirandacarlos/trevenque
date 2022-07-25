@@ -11,6 +11,7 @@
 
     <div class="row">
         <div class="col-4 fw-bold">Nombre</div>
+        <div class="col-2 fw-bold">Asignaturas</div>
         <div class="col fw-bold">Acciones</div>
     </div>
     @foreach ($titulaciones as $titulacion)
@@ -20,6 +21,7 @@
                 {{ $titulacion->nombre }}
             </a>
         </div>
+        <div class="col-2">{{ $titulacion->asignaturas->count() }}</div>
         <div class="col d-flex">
             <a href="{{ route('titulaciones.edit', ['titulacion' => $titulacion]) }}" class="link-secondary me-2">Actualizar</a>
             <form action="{{ route('titulaciones.destroy', ['titulacion' => $titulacion]) }}" method="POST">
