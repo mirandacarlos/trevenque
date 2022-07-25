@@ -59,12 +59,8 @@
             </div>
         </div>
         <div class="col d-flex align-items-center">
-            <button id="inscribir" @class([
-                "btn", 
-                "btn-primary", 
-                "me-2",
-                "disabled" => $asignatura->maximo <= $asignatura->alumnos->count()
-            ]) data-bs-toggle="modal" data-bs-target="#inscribirModal">Inscribir</button>
+            <button id="inscribir" @class([ "btn" , "btn-primary" , "me-2" , "disabled"=> $asignatura->maximo <= $asignatura->alumnos->count()
+                    ]) data-bs-toggle="modal" data-bs-target="#inscribirModal">Inscribir</button>
             <a href="{{ route('asignaturas.edit', ['asignatura' => $asignatura]) }}" class="btn btn-success me-2">Actualizar</a>
             <form action="{{ route('asignaturas.destroy', ['asignatura' => $asignatura]) }}" method="POST">
                 @csrf
@@ -90,6 +86,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <p class="form-text">{{ $asignatura->maximo - $asignatura->alumnos->count() }} cupos disponibles</p>
                     <form id="inscribirForm" action="{{ route('cursos.inscribirAlumnos') }}" method="POST">
                         @csrf
                         <input type="hidden" name="asignatura_id" value="{{ $asignatura->id }}">
