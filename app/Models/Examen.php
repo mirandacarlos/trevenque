@@ -22,4 +22,12 @@ class Examen extends Model
      * @var array
      */
     protected $fillable = ['curso_id', 'convocatoria', 'calificacion'];
+
+    /**
+     * Relación con curso.
+     * 
+     */
+    public function curso(){
+        return $this->belongsTo(Curso::class);
+    }
 }

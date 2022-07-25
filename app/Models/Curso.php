@@ -28,4 +28,28 @@ class Curso extends Pivot
      * @var array
      */
     protected $fillable = ['asignatura_id', 'alumno_id'];
+
+    /**
+     * Relación con examenes.
+     * 
+     */
+    public function examenes(){
+        return $this->hasMany(Examen::class);
+    }
+
+    /**
+     * Relación con asignatura.
+     * 
+     */
+    public function asignatura(){
+        return $this->belongsTo(Asignatura::class);
+    }
+
+    /**
+     * Relación con alumno.
+     * 
+     */
+    public function alumno(){
+        return $this->belongsTo(Alumno::class);
+    }
 }
