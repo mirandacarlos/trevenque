@@ -34,7 +34,7 @@ class Curso extends Pivot
      * 
      */
     public function examenes(){
-        return $this->hasMany(Examen::class);
+        return $this->hasMany(Examen::class, 'curso_id', 'id');
     }
 
     /**

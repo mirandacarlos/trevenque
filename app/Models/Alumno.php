@@ -34,4 +34,12 @@ class Alumno extends Model
     public function asignaturas(){
         return $this->belongsToMany(Asignatura::class, 'cursos')->using(Curso::class);
     }
+
+    /**
+     * Relación con cursos.
+     * 
+     */
+    public function cursos(){
+        return $this->hasMany(Curso::class);
+    }
 }
