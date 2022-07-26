@@ -61,9 +61,11 @@ class AlumnoController extends Controller
         )->get()->reject(function ($asignatura){
             return $asignatura->maximo <= $asignatura->alumnos->count();
         });
+        $cursos = Curso::where('alumno_id', $alumno->id)->with('examenes')->get();
         return view('alumnos/ver', [
             'alumno' => $alumno,
-            'asignaturas' => $asignaturas
+            'asignaturas' => $asignaturas,
+            'cursos' => $cursos
         ]);
     }
 

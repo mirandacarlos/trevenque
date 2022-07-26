@@ -58,6 +58,33 @@
 
     <x-asignaturas.bandeja :asignaturas="$alumno->asignaturas" :acciones="false" :alumno="$alumno"></x-asignaturas.bandeja>
 
+    <div class="row">
+        <div class="col text-center">
+            <h3>Calificaciones</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col fw-bold">Titulaci&oacute;n</div>
+        <div class="col fw-bold">Asignaruta</div>
+        <div class="col fw-bold">Convocatoria</div>
+        <div class="col fw-bold">Calificaci&oacute;n</div>
+        <div class="col fw-bold">Acciones</div>
+    </div>
+    @foreach ($cursos as $curso)
+    @if (isset($curso->examenes))
+    @foreach ($curso->examenes as $examen)
+    <div class="row">
+        <div class="col">{{ $curso->asignatura->titulacion->nombre }}</div>
+        <div class="col">{{ $curso->asignatura->nombre }}</div>
+        <div class="col">{{ $examen->convocatoria }}</div>
+        <div class="col">{{ $examen->calificacion }}</div>
+        <div class="col">Borrar</div>
+    </div>
+    @endforeach
+    @endif
+    @endforeach
+
     <div class="modal fade" id="inscribirModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="inscribirModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
