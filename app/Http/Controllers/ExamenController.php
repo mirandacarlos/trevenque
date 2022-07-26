@@ -10,7 +10,8 @@ class ExamenController extends Controller
 
     /**
      * Borrar Calificacion.
-     * 
+     * @param  \App\Models\Examen $examen
+     * @return \Illuminate\Http\Response
      */
     public function borrarCalificacion(Examen $examen)
     {
