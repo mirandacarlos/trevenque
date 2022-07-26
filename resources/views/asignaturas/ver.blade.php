@@ -102,16 +102,20 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" onclick="enviar()">Guardar</button>
+                    <button type="button" class="btn btn-primary" onclick="enviarInscribir()">Guardar</button>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        function enviar() {
+        function enviarInscribir() {
             document.getElementById('inscribirForm').submit()
         }
     </script>
+    @push('scripts')
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    @endpush
+
 
 </x-layout>

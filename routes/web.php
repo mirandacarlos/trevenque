@@ -5,6 +5,7 @@ use App\Http\Controllers\AsignaturaController;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\ExamenController;
 use App\Http\Controllers\TitulacionController;
+use App\Models\Examen;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,3 +37,7 @@ Route::post('/cursos/inscribirAsignaturas', [CursoController::class, 'inscribirA
 Route::delete('/cursos/bajaAlumno', [CursoController::class, 'bajaAlumno'])->name('cursos.bajaAlumno');
 
 Route::delete('/examenes/borrarCalificacion/{examen}', [ExamenController::class, 'borrarCalificacion'])->name('examenes.borrarCalificacion');
+
+Route::post('/examenes/calificar', [ExamenController::class, 'calificar'])->name('examenes.calificar');
+
+Route::get('/examenes/create', [ExamenController::class, 'create'])->name('examenes.create');
