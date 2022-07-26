@@ -27,7 +27,9 @@
     @endif
     @if (session('error'))
     <div class="alert alert-danger">
-        {{ session('error') }}
+        @foreach (session('error') as $error)
+        <div>{{ $error }}</div>
+        @endforeach
     </div>
     @endif
     {{ $slot }}

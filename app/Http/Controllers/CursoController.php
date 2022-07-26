@@ -23,9 +23,9 @@ class CursoController extends Controller
                 }
                 return back()->with('status', 'Alumnos inscritos en la asignatura');
             }
-            return back()->with('error', 'Las inscripciones superan la capacidad de la asignatura');
+            return back()->with('error', ['Las inscripciones superan la capacidad de la asignatura']);
         }
-        return back()->with('error', 'Debe seleccionar al menos un alumno');
+        return back()->with('error', ['Debe seleccionar al menos un alumno']);
     }
 
     /**
@@ -40,7 +40,7 @@ class CursoController extends Controller
             }
             return back()->with('status', 'Se ha inscrito al alumno en las asignaturas');
         }
-        return back()->with('error', 'Debe seleccionar al menos una asignatura');
+        return back()->with('error', ['Debe seleccionar al menos una asignatura']);
     }
 
     /**
