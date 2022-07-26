@@ -41,12 +41,20 @@ class ExamenController extends Controller
      */
     function create(Request $request)
     {
+        $convocatorias = [1, 2];
+        $curso = Curso::where([
+            'asignatura_id' => $request->asignatura,
+            'alumno_id' => $request->alumno
+        ])->first();
+        foreach ($curso->examenes as $examen){
+            unset($convocatorias[array_search($examen->convocatoria, $convocatorias)]);
+        }
+        if (empty($convocatorias)){
+            return 'El alumno ha sido calificado en todas las convocatorias';
+        }
         return view('examenes/formulario', [
-            'curso' => Curso::where([
-                'asignatura_id' => $request->asignatura,
-                'alumno_id' => $request->alumno
-            ])->first(),
-            'convocatorias' => [1, 2]
+            'curso' => $curso,
+            'convocatorias' => $convocatorias
         ]);
     }
 }
