@@ -79,7 +79,13 @@
         <div class="col">{{ $curso->asignatura->nombre }}</div>
         <div class="col">{{ $examen->convocatoria }}</div>
         <div class="col">{{ $examen->calificacion }}</div>
-        <div class="col">Borrar</div>
+        <div class="col">
+            <form action="{{ route('examenes.borrarCalificacion', ['examen' => $examen]) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <a href="#" class="link-danger" onclick="if (confirm('Desea borrar la calificación?')){this.closest('form').submit()}">Borrar</a>
+            </form>
+        </div>
     </div>
     @endforeach
     @endif

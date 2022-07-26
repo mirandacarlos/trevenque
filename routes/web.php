@@ -3,6 +3,7 @@
 use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\AsignaturaController;
 use App\Http\Controllers\CursoController;
+use App\Http\Controllers\ExamenController;
 use App\Http\Controllers\TitulacionController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,3 +34,5 @@ Route::post('/cursos/inscribirAlumnos', [CursoController::class, 'inscribirAlumn
 Route::post('/cursos/inscribirAsignaturas', [CursoController::class, 'inscribirAsignaturas'])->name('cursos.inscribirAsignaturas');
 
 Route::delete('/cursos/bajaAlumno', [CursoController::class, 'bajaAlumno'])->name('cursos.bajaAlumno');
+
+Route::delete('/examenes/borrarCalificacion/{examen}', [ExamenController::class, 'borrarCalificacion'])->name('examenes.borrarCalificacion');
