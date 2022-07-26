@@ -78,6 +78,39 @@
     
     <x-alumnos.bandeja :alumnos="$asignatura->alumnos" :acciones="false" :asignatura="$asignatura"></x-alumnos.bandeja>
 
+    <div class="row">
+        <div class="col text-center">
+            <h3>Calificaciones</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col fw-bold">Nombre</div>
+        <div class="col fw-bold">Apellidos</div>
+        <div class="col fw-bold">Convocatoria</div>
+        <div class="col fw-bold">Calificaci&oacute;n</div>
+        <div class="col fw-bold">Acciones</div>
+    </div>
+    @foreach ($cursos as $curso)
+    @if (isset($curso->examenes))
+    @foreach ($curso->examenes as $examen)
+    <div class="row">
+        <div class="col">{{ $curso->alumno->nombre }}</div>
+        <div class="col">{{ $curso->alumno->apellidos }}</div>
+        <div class="col">{{ $examen->convocatoria }}</div>
+        <div class="col">{{ $examen->calificacion }}</div>
+        <div class="col">
+            <form action="{{ route('examenes.borrarCalificacion', ['examen' => $examen]) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <a href="#" class="link-danger" onclick="if (confirm('Desea borrar la calificación?')){this.closest('form').submit()}">Borrar</a>
+            </form>
+        </div>
+    </div>
+    @endforeach
+    @endif
+    @endforeach
+
     <div class="modal fade" id="inscribirModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="inscribirModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">

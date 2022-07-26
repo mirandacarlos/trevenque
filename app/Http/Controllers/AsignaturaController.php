@@ -55,13 +55,15 @@ class AsignaturaController extends Controller
      */
     public function show(Asignatura $asignatura)
     {
+        $cursos = Curso::where('asignatura_id', $asignatura->id)->with('examenes')->get();
         return view('asignaturas/ver', [
             'asignatura' => $asignatura,
             'alumnos' => Alumno::whereNotIn(
                 'id',
                 Curso::select('alumno_id')
                     ->where('asignatura_id', $asignatura->id)->get()
-            )->get()
+            )->get(),
+            'cursos' => $cursos
     ]);
     }
 
