@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ExamenRequest;
 use App\Models\Curso;
 use App\Models\Examen;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ExamenController extends Controller
 {
@@ -25,6 +27,12 @@ class ExamenController extends Controller
      */
     public function calificar(Request $request)
     {
+        $form = new ExamenRequest();
+        $validator = Validator::make($request->all(), $form->rules(), $form->messages());
+        if ($validator->fails()){
+            return back()->with('error', $validator->errors()->all());
+        }
+        Examen::create($validator->validated());
         return back()->with('status', 'Calificación guardada');
     }
 

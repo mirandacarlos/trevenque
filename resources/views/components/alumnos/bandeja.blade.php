@@ -47,16 +47,19 @@
                 <h5 class="modal-title">Calificar alumno</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-
-            </div>
+            <div class="modal-body"></div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" onclick="enviar()">Guardar</button>
+                <button type="button" class="btn btn-primary" onclick="enviarCalificar()">Guardar</button>
             </div>
         </div>
     </div>
 </div>
+<script>
+    function enviarCalificar() {
+            document.getElementById('calificarForm').submit()
+        }
+</script>
 @push('scripts')
 <script>
     const myModal = new bootstrap.Modal(document.getElementById('calificarModal'));
